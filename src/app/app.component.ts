@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rdService.fetchResources();
+    for(let i=0; i < 10; i++) {
+      this.rdService.fetchResources(i);
+    }
   }
 }

@@ -29,7 +29,8 @@ export class ResourceDataService {
     this.http = http;
    }
 
-  fetchResources() {
+  fetchResources(i) {
+    console.log('service trigger #', i);
     this.http.get('https://swapi.co/api/people/')
       .map((response: Response) => {
         const data = response.json();
@@ -41,6 +42,7 @@ export class ResourceDataService {
       })
       .subscribe(
         (data) => {
+          console.log('service completed #', i);
           this.candidates = data;
           this.resourceChanged.next();
         }
